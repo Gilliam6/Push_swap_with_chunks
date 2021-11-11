@@ -21,4 +21,4 @@ Goals:
 1. [visualizer](https://github.com/o-reo/push_swap_visualizer)    
    
    
-  [Запись экрана 2021-11-11 в 23.57.44.mov](files/%D1%80%D0%B0%D0%BD%D0%B0%202021-11-11%20%D0%B2%2023.57.44.mov)    
+  [](https://github.com/Gilliam6/Push_swap_with_chunks/blob/master/sorting.gif)    
