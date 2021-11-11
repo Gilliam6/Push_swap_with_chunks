@@ -21,4 +21,4 @@ Goals:
 1. [visualizer](https://github.com/o-reo/push_swap_visualizer)    
    
    
-  [](https://github.com/Gilliam6/Push_swap_with_chunks/blob/master/sorting.gif)    
+  [visualizer](https://github.com/Gilliam6/Push_swap_with_chunks/blob/master/sorting.gif)    
