@@ -2,8 +2,8 @@ SRCS_LIST = push_swap.c pushes.c\
             		reverse_rotate.c\
              		rotate.c stack.c\
              		swaps.c utils.c\
-             		sort.c validator.c\
-             		fix_sort.c\
+             		sort.c\
+             		fix_sort.c check_args.c free_memory.c\
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
@@ -11,6 +11,19 @@ SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
 OBJ_DIR = objects/
 OBJ_LIST = $(patsubst %.c, %.o, $(SRCS_LIST))
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_LIST))
+
+BONUS = bonus
+BONUS_SRCS_LIST = checker.c check_pushes.c\
+			check_reverse_rotate.c check_rotate.c check_swaps.c\
+			get_next_line.c get_next_line_utils.c stack.c utils.c check_args.c
+BONUS_SRCS_DIR = checker_srcs/
+BONUS_SRCS = $(addprefix $(BONUS_SRCS_DIR), $(BONUS_SRCS_LIST))
+
+BONUS_INCLUDES = -Iincludes/push_swap.h -Iincludes/get_next_line.h
+BONUS_HEADER = includes/push_swap.h includes/get_next_line.h includes/libft.h
+BONUS_OBJ_DIR = bonus_obj/
+BONUS_OBJ_LIST = $(patsubst %.c, %.o, $(BONUS_SRCS_LIST))
+BONUS_OBJ = $(addprefix $(BONUS_OBJ_DIR), $(BONUS_OBJ_LIST))
 
 LIB_CMD_ALL = $(addsuffix .all, libft/)
 LIBFT = libft/libft.a
@@ -83,17 +96,31 @@ $(OBJ_DIR)%.o: $(SRCS_DIR)%.c $(HEADER) $(HEADER_LIB)
 		@gcc $(CFLAGS) -c $(INCLUDES) $< -o $@
 		@echo "$(GREEN)/$(RESET)\c"
 
-%.all:
-	make -C $*
+$(BONUS): $(BONUS_OBJ_DIR) $(BONUS_OBJ) $(LIBFT)
+		@gcc $(CFLAGS) $(LIBFT) $(BONUS_INCLUDES) $(BONUS_OBJ) -o checker
+		@echo "$(BONUS):$(GREEN).o files were created$(RESET)"
+		@echo "$(BONUS): $(GREEN)$(BONUS) was created$(RESET)"
+
+$(BONUS_OBJ_DIR):
+		@mkdir -p $(BONUS_OBJ_DIR)
+		@echo "$(NAME): $(GREEN)$(BONUS_OBJ_DIR) was created$(RESET)"
+
+$(BONUS_OBJ_DIR)%.o: $(BONUS_SRCS_DIR)%.c $(BONUS_HEADER)
+		@gcc $(CFLAGS) -c $(BONUS_INCLUDES) $< -o $@
+		@echo "$(GREEN)/$(RESET)\c"
 
 
 clean:
 		@echo "$(NAME):$(GREEN) libft is cleaned$(RESET)"
 		@echo "$(NAME):$(GREEN) objects dirs are cleaned$(RESET)"
 		@rm -rf objects
+		@echo "$(BONUS):$(GREEN) libft is cleaned$(RESET)"
+		@echo "$(BONUS):$(GREEN) objects dirs are cleaned$(RESET)"
+		@rm -rf bonus_obj
 
 fclean: clean
 		@$(RM) $(NAME)
+		@$(RM) ./$(BONUS)
 		@make -C libft fclean
 
 re : fclean all

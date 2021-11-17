@@ -6,7 +6,7 @@ t_stack	*lstnew(int content, char head, int group, int order)
 
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
-		my_exit(-1);
+		return (0);
 	new_node->number = content;
 	new_node->group = group;
 	new_node->head = head;
@@ -87,6 +87,8 @@ t_stack	*stack_constructor(int *cash, int counter)
 
 	index = 0;
 	stack_A = lstnew(cash[index], 1, 0, 0);
+	if (!stack_A)
+		return (0);
 	while (++index < counter)
 		roundlst_addback(&stack_A, lstnew(cash[index], 0, 0, 0));
 	return (stack_A);
@@ -132,6 +134,11 @@ void	stack_init(int *cash, int counter)
 
 	stack_B = 0;
 	stack_A = stack_constructor(cash, counter);
+	if (!stack_A)
+	{
+		free(cash);
+		my_exit(-2);
+	}
 	if (!sorted_stack(stack_A))
 	{
 		pre_sorting(&stack_A, cash, counter);
@@ -141,5 +148,10 @@ void	stack_init(int *cash, int counter)
 		little_sort(&stack_A, &stack_B);
 	else
 		sort(&stack_A, &stack_B);
+	if (stack_A)
+		free_stack(&stack_A);
+
+	if (stack_B)
+		free_stack(&stack_B);
 }
 

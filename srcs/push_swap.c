@@ -37,26 +37,14 @@ int	*casher(char **set, int *save)
 
 int	main(int argc, char **argv)
 {
-	char **set;
 	int *cash;
 	int counter;
 
-	set = 0;
 	counter = 0;
-	if (argc == 2)
-	{
-		if (!check_numbers(argv[1], &set) || !check_doubles(set))
-			my_exit(-1);
-	}
+	if (argc > 1)
+		counter += check_arguments(argc, argv, &cash);
 	else
-	{
-		if (!check_numbers_wo_split(++argv) || !check_doubles(argv))
-			my_exit(-1);
-	}
-	if (set == 0)
-		cash = casher(argv, &counter);
-	else
-		cash = casher(set, &counter);
+		return (0);
 	stack_init(cash, counter);
 	return (0);
 }

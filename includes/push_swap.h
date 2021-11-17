@@ -3,6 +3,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../includes/libft.h"
+# include "../includes/get_next_line.h"
 typedef struct linked_list
 {
 	int					number;
@@ -20,18 +21,19 @@ typedef struct medians
 	int					next;
 }	t_medians;
 
-int	*casher(char **set, int *save);
-int	my_exit(int err_num);
-void	stack_init(int *cash, int counter);
-void little_sort(t_stack **stack_A, t_stack **stack_B);
-void	pre_sorting(t_stack **stack_A, int *cash, int counter);
-t_stack	*stack_constructor(int *cash, int counter);
-void	roundlst_delfirst(t_stack **stack);
-void	roundlst_addfront(t_stack **lst, t_stack *new);
-void	roundlst_addback(t_stack **lst, t_stack *new);
-t_stack	*lstnew(int content, char head, int group, int order);
+int			*casher(char **set, int *save);
+int			my_exit(int err_num);
+void		stack_init(int *cash, int counter);
+void		little_sort(t_stack **stack_A, t_stack **stack_B);
+void		pre_sorting(t_stack **stack_A, int *cash, int counter);
+t_stack		*stack_constructor(int *cash, int counter);
+void		roundlst_delfirst(t_stack **stack);
+void		roundlst_addfront(t_stack **lst, t_stack *new);
+void		roundlst_addback(t_stack **lst, t_stack *new);
+t_stack		*lstnew(int content, char head, int group, int order);
 
-void	sort(t_stack **stack_A, t_stack **stack_B);
+void		sort(t_stack **stack_A, t_stack **stack_B);
+int			check_arguments(int argc, char **argv, int **cash);
 
 int			check_numbers(char *set, char ***splitted);
 int			check_numbers_wo_split(char **splitted);
@@ -64,5 +66,20 @@ void		reverse_shift_B(t_stack **stack);
 void		reverse_shift_both(t_stack **stack_A, t_stack **stack_B);
 int			len_stack(t_stack *stack);
 int			sorted_stack(t_stack *stack);
+
+void		check_swap_a(t_stack **stack_A);
+void		check_swap_both(t_stack **stack_A, t_stack **stack_B);
+void		check_swap_b(t_stack **stack_B);
+void		check_shift_A(t_stack **stack_A);
+void		check_shift_B(t_stack **stack_B);
+void		check_shift_both(t_stack **stack_A, t_stack **stack_B);
+void		check_reverse_shift_B(t_stack **stack_B);
+void		check_reverse_shift_A(t_stack **stack_A);
+void		check_reverse_shift_both(t_stack **stack_A, t_stack **stack_B);
+void		check_push_a(t_stack **stack_B, t_stack **stack_A);
+void		check_push_b(t_stack **stack_A, t_stack **stack_B);
+void	free_stack(t_stack **stack);
+void 	free_double_array(char **split, int i);
+
 
 #endif

@@ -24,26 +24,6 @@ long int	ft_atoi_long(const char *str)
 	return (final * minus);
 }
 
-void print_stack(t_stack *stack)
-{
-	t_stack *start;
-
-	start = stack;
-	if (!stack)
-	{
-		write(1, "stack is empty\n", 15);
-		return ;
-	}
-	while (stack->next != start)
-	{
-		printf("number = %d | group = %d | order = %d | head = %d\n",
-			   stack->number, stack->group, stack->order, stack->head);
-		stack = stack->next;
-	}
-	printf("number = %d | group = %d | order = %d | head = %d\n",
-		   stack->number, stack->group, stack->order, stack->head);
-}
-
 int	len_stack(t_stack *stack)
 {
 	int len;

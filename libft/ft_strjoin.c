@@ -8,8 +8,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	counter = 0;
 	index = 0;
-	if (!s1 || !s2)
-		return (0);
+	if (!s1)
+		return ((char *)s2);
+	if (!s2)
+		return ((char *)s1);
 	while (s1[counter])
 		counter++;
 	while (s2[index])
