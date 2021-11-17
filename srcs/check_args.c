@@ -54,22 +54,22 @@ int	check_arguments(int argc, char **argv, int **cash)
 {
 	int		i;
 	char 	*arr;
-	char	*tmp;
+//	char	*tmp;
 	char	**splitter;
 
 	arr = argv[1];
-	tmp = arr;
+//	tmp = arr;
 	arr = ft_strjoin(arr, " ");
-	free(tmp);
+//	free(tmp);
 	i = 1;
 	while (++i <= argc)
 	{
-		tmp = arr;
+//		tmp = arr;
 		arr = ft_strjoin(arr, argv[i]);
-		free(tmp);
-		tmp = arr;
+//		free(tmp);
+//		tmp = arr;
 		arr = ft_strjoin(arr, " ");
-		free(tmp);
+//		free(tmp);
 	}
 	splitter = ft_split(arr, ' ');
 	free(arr);
