@@ -49,27 +49,29 @@ int check_overfit(char *splitter)
 		return (1);
 }
 
+char *str_prolongate_fabrik(char *arr, char *add)
+{
+	char	*tmp;
+
+	tmp = arr;
+	arr = ft_strjoin(arr, add);
+	free(tmp);
+	return (arr);
+}
 
 int	check_arguments(int argc, char **argv, int **cash)
 {
 	int		i;
 	char 	*arr;
-//	char	*tmp;
 	char	**splitter;
 
-	arr = argv[1];
-//	tmp = arr;
-	arr = ft_strjoin(arr, " ");
-//	free(tmp);
 	i = 1;
-	while (++i <= argc)
+	arr = ft_calloc(ft_strlen(argv[i]) + 1, 1);
+	ft_memcpy(arr, argv[i], ft_strlen(argv[i]));
+	while (++i < argc)
 	{
-//		tmp = arr;
-		arr = ft_strjoin(arr, argv[i]);
-//		free(tmp);
-//		tmp = arr;
-		arr = ft_strjoin(arr, " ");
-//		free(tmp);
+		arr = str_prolongate_fabrik(arr, " ");
+		arr = str_prolongate_fabrik(arr, argv[i]);
 	}
 	splitter = ft_split(arr, ' ');
 	free(arr);

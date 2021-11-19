@@ -3,20 +3,9 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		counter;
-	int		index;
 	char	*mem;
 
-	counter = 0;
-	index = 0;
-	if (!s1)
-		return ((char *)s2);
-	if (!s2)
-		return ((char *)s1);
-	while (s1[counter])
-		counter++;
-	while (s2[index])
-		index++;
-	mem = (char *)malloc(counter + index + 1);
+	mem = (char *)malloc(ft_strlen((char*)s1) + ft_strlen((char*)s2) + 1);
 	if (!mem)
 		return (0);
 	counter = 0;

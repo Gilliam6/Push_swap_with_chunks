@@ -8,7 +8,7 @@ void	free_stack(t_stack **stack)
 
 void 	free_double_array(char **split, int i)
 {
-	while (i)
+	while (i >= 0)
 	{
 		free(split[i]);
 		i--;
