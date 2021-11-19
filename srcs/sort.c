@@ -88,11 +88,5 @@ void	sort(t_stack **stack_A, t_stack **stack_B)
 		chunks->step += 15;
 	push_chunks(stack_A, stack_B, chunks);
 	sorting_back(stack_A, stack_B, chunks);
-//	ft_putstr_fd("Stack A\n", 1);
-//	print_stack(*stack_A);
-//	ft_putstr_fd("Stack B\n", 1);
-//	print_stack(*stack_B);
-//	printf("chunk num %d\n", chunks->num);
-
 }
 

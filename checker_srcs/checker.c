@@ -1,6 +1,5 @@
 #include "../includes/push_swap.h"
 
-
 t_stack *stack_bild(int *cash, int counter)
 {
 	t_stack		*stack_A;

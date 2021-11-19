@@ -63,3 +63,13 @@ int	sorted_stack(t_stack *stack)
 	}
 	return (1);
 }
+
+int ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 == *s2);
+}

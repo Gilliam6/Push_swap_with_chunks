@@ -40,3 +40,23 @@ int	len_stack(t_stack *stack)
 	}
 	return (len);
 }
+
+int ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 == *s2);
+}
+
+char *str_prolongate_fabrik(char *arr, char *add)
+{
+	char	*tmp;
+
+	tmp = arr;
+	arr = ft_strjoin(arr, add);
+	free(tmp);
+	return (arr);
+}

@@ -16,3 +16,16 @@ void 	free_double_array(char **split, int i)
 	}
 	free(split);
 }
+
+void 	free_full_double_array(char **split)
+{
+	int i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}

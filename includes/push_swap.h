@@ -80,6 +80,15 @@ void		check_push_a(t_stack **stack_B, t_stack **stack_A);
 void		check_push_b(t_stack **stack_A, t_stack **stack_B);
 void	free_stack(t_stack **stack);
 void 	free_double_array(char **split, int i);
+void 	free_full_double_array(char **split);
+int		ft_strcmp(char *s1, char *s2);
+char	*str_prolongate_fabrik(char *arr, char *add);
+int		find_next(t_stack *stack_B, t_medians *chunks);
+int		find_next_min(t_stack *stack_B, int min);
+void	small_sort(t_stack **stack_A, t_stack **stack_B);
+
+
+
 
 
 #endif

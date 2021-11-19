@@ -10,16 +10,6 @@ int	check_digits(char *argv)
 	return (1);
 }
 
-int ft_strcmp(char *s1, char *s2)
-{
-	while (*s1 && *s2 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 == *s2);
-}
-
 int	check_doubles(char **set)
 {
 	unsigned int	counter;
@@ -49,14 +39,26 @@ int check_overfit(char *splitter)
 		return (1);
 }
 
-char *str_prolongate_fabrik(char *arr, char *add)
-{
-	char	*tmp;
 
-	tmp = arr;
-	arr = ft_strjoin(arr, add);
-	free(tmp);
-	return (arr);
+int checkomba(char **splitter)
+{
+	int	i;
+
+	i = -1;
+	while(splitter[++i])
+	{
+		if (!check_digits(splitter[i]) && !check_overfit(splitter[i]))
+		{
+			free_full_double_array(splitter);
+			my_exit(-1);
+		}
+	}
+	if (!check_doubles(splitter))
+	{
+		free_full_double_array(splitter);
+		my_exit(-1);
+	}
+	return (i);
 }
 
 int	check_arguments(int argc, char **argv, int **cash)
@@ -75,18 +77,7 @@ int	check_arguments(int argc, char **argv, int **cash)
 	}
 	splitter = ft_split(arr, ' ');
 	free(arr);
-	i = -1;
-	while (splitter[++i])
-		if (!check_digits(splitter[i]) || !check_overfit(splitter[i]))
-		{
-			free_double_array(splitter, i);
-			my_exit(-1);
-		}
-	if (!check_doubles(splitter))
-	{
-		free_double_array(splitter, i);
-		my_exit(-1);
-	}
+	i = checkomba(splitter);
 	*cash = malloc(sizeof(int *) * i);
 	i = -1;
 	while (splitter[++i])

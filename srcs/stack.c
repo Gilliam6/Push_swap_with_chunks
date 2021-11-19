@@ -125,6 +125,8 @@ void little_sort(t_stack **stack_A, t_stack **stack_B)
 		sort_4(stack_A, stack_B);
 	else if (len_stack(*stack_A) == 5)
 		sort_5(stack_A, stack_B);
+	else
+		small_sort(stack_A, stack_B);
 }
 
 void	stack_init(int *cash, int counter)
@@ -143,14 +145,13 @@ void	stack_init(int *cash, int counter)
 	{
 		pre_sorting(&stack_A, cash, counter);
 		free(cash);
+		if (len_stack(stack_A) <= 51)
+			little_sort(&stack_A, &stack_B);
+		else
+			sort(&stack_A, &stack_B);
 	}
-	if (len_stack(stack_A) <= 15)
-		little_sort(&stack_A, &stack_B);
-	else
-		sort(&stack_A, &stack_B);
 	if (stack_A)
 		free_stack(&stack_A);
-
 	if (stack_B)
 		free_stack(&stack_B);
 }

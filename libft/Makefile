@@ -67,7 +67,6 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 $(NAME):	${OBJECTS}
 			@${AR} ${NAME} ${OBJECTS}
-			@#echo "\n"
 
 all:		${NAME}
 
