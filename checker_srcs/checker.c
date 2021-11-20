@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-t_stack *stack_bild(int *cash, int counter)
+t_stack	*stack_bild(int *cash, int counter)
 {
 	t_stack		*stack_A;
 
@@ -35,30 +35,11 @@ void	func_switcher(t_stack **stack_A, t_stack **stack_B, int counter)
 		check_push_b(stack_A, stack_B);
 }
 
-int		ft_custom_strcmp(char *s1, char *s2)
-{
-	int	len;
-
-	if (ft_strlen(s1) > ft_strlen(s2))
-		len = ft_strlen(s1);
-	else
-		len = ft_strlen(s2);
-	while (len--)
-	{
-		if (*s1 != *s2)
-			return (1);
-		s1++;
-		s2++;
-	}
-	return (0);
-
-
-}
 void	implement_moves(t_stack **stack_A, t_stack **stack_B, char *moves)
 {
-	char *mv[] = {"sa", "ss", "sb", "ra", "rb", "rr", "rrb", "rra", "rrr",
-				 "pa", "pb", 0};
-	int	counter;
+	char	*mv[] = {"sa", "ss", "sb", "ra", "rb", "rr", "rrb", "rra", "rrr",
+			   "pa", "pb", 0};
+	int		counter;
 
 	counter = 0;
 	while (mv[counter] && ft_custom_strcmp(moves, mv[counter]))
@@ -69,11 +50,11 @@ void	implement_moves(t_stack **stack_A, t_stack **stack_B, char *moves)
 		func_switcher(stack_A, stack_B, counter);
 }
 
-int checker(int *casher, int counter)
+int	checker(int *casher, int counter)
 {
-	char *moves;
-	t_stack *stack_A;
-	t_stack *stack_B;
+	char	*moves;
+	t_stack	*stack_A;
+	t_stack	*stack_B;
 
 	stack_A = stack_bild(casher, counter);
 	if (!stack_A)
@@ -96,10 +77,10 @@ int checker(int *casher, int counter)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int *cash;
-	int counter;
+	int	*cash;
+	int	counter;
 
 	counter = 0;
 	if (argc > 1)
@@ -110,4 +91,3 @@ int main(int argc, char **argv)
 		my_exit(-2);
 	return (0);
 }
-

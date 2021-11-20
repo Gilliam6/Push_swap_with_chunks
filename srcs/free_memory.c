@@ -18,7 +18,7 @@ void 	free_double_array(char **split, int i)
 
 void 	free_full_double_array(char **split)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (split[i])

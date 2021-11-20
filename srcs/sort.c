@@ -2,7 +2,7 @@
 
 int	sorted_stack(t_stack *stack)
 {
-	int last;
+	int	last;
 
 	last = stack->previous->number;
 	while (stack->number != last)
@@ -14,19 +14,17 @@ int	sorted_stack(t_stack *stack)
 	return (1);
 }
 
-
 void	push_chunks(t_stack **stack_A, t_stack **stack_B, t_medians *chunks)
 {
 	while (*stack_A)
 	{
-		if ((*stack_A)->order <= chunks->num && chunks->num > 1)
+		if ((*stack_A)->order <= chunks->num)
 		{
 			push_b(stack_A, stack_B);
 			shift_B(stack_B);
 			chunks->num++;
 		}
-		else if ((*stack_A)->order <=
-				 chunks->num + chunks->step)
+		else if ((*stack_A)->order <= chunks->num + chunks->step)
 		{
 			push_b(stack_A, stack_B);
 			chunks->num++;
@@ -76,17 +74,15 @@ void	sorting_back(t_stack **stack_A, t_stack **stack_B, t_medians *chunks)
 
 void	sort(t_stack **stack_A, t_stack **stack_B)
 {
-	t_medians *chunks;
+	t_medians	*chunks;
 
 	chunks = malloc(sizeof(chunks));
 	if (!chunks)
 		exit(0);
 	chunks->num = 0;
-	chunks->next = 1;
 	chunks->step = 15;
 	if (len_stack(*stack_A) > 250)
 		chunks->step += 15;
 	push_chunks(stack_A, stack_B, chunks);
 	sorting_back(stack_A, stack_B, chunks);
 }
-

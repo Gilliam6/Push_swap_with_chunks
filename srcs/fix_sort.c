@@ -37,7 +37,7 @@ void 	sort_4(t_stack **stack_A, t_stack **stack_B)
 
 void 	sort_5(t_stack **stack_A, t_stack **stack_B)
 {
-	int len;
+	int	len;
 
 	len = 2;
 	while (len)

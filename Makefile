@@ -2,7 +2,7 @@ SRCS_LIST = push_swap.c pushes.c\
             		reverse_rotate.c\
              		rotate.c stack.c\
              		swaps.c utils.c\
-             		sort.c\
+             		sort.c rounded_list_routine.c\
              		fix_sort.c check_args.c free_memory.c small_sort.c\
 
 SRCS_DIR = srcs/
@@ -16,7 +16,7 @@ BONUS = bonus
 BONUS_SRCS_LIST = checker.c check_pushes.c\
 			check_reverse_rotate.c check_rotate.c check_swaps.c\
 			get_next_line.c get_next_line_utils.c\
-			stack.c utils.c\
+			stack.c utils.c rounded_list_routine.c\
 			check_args.c free_memory.c
 BONUS_SRCS_DIR = checker_srcs/
 BONUS_SRCS = $(addprefix $(BONUS_SRCS_DIR), $(BONUS_SRCS_LIST))

@@ -64,12 +64,20 @@ int	sorted_stack(t_stack *stack)
 	return (1);
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_custom_strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s2 && (*s1 == *s2))
+	int	len;
+
+	if (ft_strlen(s1) > ft_strlen(s2))
+		len = ft_strlen(s1);
+	else
+		len = ft_strlen(s2);
+	while (len--)
 	{
+		if (*s1 != *s2)
+			return (1);
 		s1++;
 		s2++;
 	}
-	return (*s1 == *s2);
+	return (0);
 }

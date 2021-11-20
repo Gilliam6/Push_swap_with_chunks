@@ -26,7 +26,7 @@ long int	ft_atoi_long(const char *str)
 
 int	len_stack(t_stack *stack)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (!stack)
@@ -41,7 +41,7 @@ int	len_stack(t_stack *stack)
 	return (len);
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 && *s2 && (*s1 == *s2))
 	{
@@ -51,7 +51,7 @@ int ft_strcmp(char *s1, char *s2)
 	return (*s1 == *s2);
 }
 
-char *str_prolongate_fabrik(char *arr, char *add)
+char	*str_prolongate_fabrik(char *arr, char *add)
 {
 	char	*tmp;
 

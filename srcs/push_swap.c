@@ -12,9 +12,9 @@ int	my_exit(int err_num)
 int	*casher(char **set, int *save)
 {
 	unsigned int	counter;
-	unsigned int 	index;
-	long int 		tmp;
-	int 			*cash;
+	unsigned int	index;
+	long int		tmp;
+	int				*cash;
 
 	counter = 0;
 	while (set[counter])
@@ -37,8 +37,8 @@ int	*casher(char **set, int *save)
 
 int	main(int argc, char **argv)
 {
-	int *cash;
-	int counter;
+	int	*cash;
+	int	counter;
 
 	counter = 0;
 	if (argc > 1)

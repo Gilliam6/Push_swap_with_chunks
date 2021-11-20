@@ -4,7 +4,7 @@ int	check_digits(char *argv)
 	while (*argv)
 	{
 		if (!isdigit(*argv))
-			return(0);
+			return (0);
 		argv++;
 	}
 	return (1);
@@ -28,7 +28,7 @@ int	check_doubles(char **set)
 	return (1);
 }
 
-int check_overfit(char *splitter)
+int	check_overfit(char *splitter)
 {
 	long int	check;
 
@@ -39,13 +39,12 @@ int check_overfit(char *splitter)
 		return (1);
 }
 
-
-int checkomba(char **splitter)
+int	checkomba(char **splitter)
 {
 	int	i;
 
 	i = -1;
-	while(splitter[++i])
+	while (splitter[++i])
 	{
 		if (!check_digits(splitter[i]) && !check_overfit(splitter[i]))
 		{
@@ -64,7 +63,7 @@ int checkomba(char **splitter)
 int	check_arguments(int argc, char **argv, int **cash)
 {
 	int		i;
-	char 	*arr;
+	char	*arr;
 	char	**splitter;
 
 	i = 1;

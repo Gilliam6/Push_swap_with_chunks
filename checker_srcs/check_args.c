@@ -1,4 +1,5 @@
 #include "../includes/push_swap.h"
+
 int	check_digits(char *argv)
 {
 	while (*argv)
@@ -19,7 +20,7 @@ int	check_doubles(char **set)
 		counter = 1;
 		while (set[counter])
 		{
-			if (ft_strcmp(set[0], set[counter]))
+			if (ft_custom_strcmp(set[0], set[counter]))
 				return (0);
 			counter++;
 		}

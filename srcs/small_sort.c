@@ -40,7 +40,7 @@ void	find_way(t_stack **stack_A, t_stack **stack_B, int min)
 void	small_sort(t_stack **stack_A, t_stack **stack_B)
 {
 	int	min;
-	int max;
+	int	max;
 
 	min = 1;
 	max = len_stack(*stack_A);
