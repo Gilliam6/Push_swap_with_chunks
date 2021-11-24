@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 15:47:22 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 15:47:24 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static unsigned int	ft_check_memory(char const *s, unsigned int start,
-									 size_t len)
+static unsigned int	ft_check_memory(char const *s, unsigned int start, size_t
+len)
 {
 	unsigned int	counter;
 

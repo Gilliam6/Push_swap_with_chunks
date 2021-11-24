@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 14:37:39 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 14:37:40 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void	shift_A(t_stack **stack)
+void	shift_a(t_stack **stack)
 {
 	if (len_stack(*stack) > 1)
 	{
@@ -11,7 +23,7 @@ void	shift_A(t_stack **stack)
 	write(1, "ra\n", 3);
 }
 
-void	shift_B(t_stack **stack)
+void	shift_b(t_stack **stack)
 {
 	if (len_stack(*stack) > 1)
 	{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 14:51:00 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 14:51:02 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/get_next_line.h"
 
 char	*ft_custom_strchr(char *s, int c)
@@ -21,8 +33,8 @@ char	*ft_custom_strjoin(char *content, char *buf)
 	char	*joiner;
 	char	*tmp;
 
-	joiner = (char *)malloc(ft_custom_strlen(content) + ft_custom_strlen(buf) +
-			1);
+	joiner = (char *)malloc(ft_custom_strlen(content) + ft_custom_strlen(buf)
+			+ 1);
 	tmp = joiner;
 	if (content)
 		while (*content)

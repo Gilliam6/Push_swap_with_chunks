@@ -1,16 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 15:17:42 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 15:17:43 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
 # include "../includes/libft.h"
 # include "../includes/get_next_line.h"
+
 typedef struct s_linked
 {
 	int					number;
 	char				head;
 	int					order;
-	struct s_linked	*next;
-	struct s_linked	*previous;
+	struct s_linked		*next;
+	struct s_linked		*previous;
 }	t_stack;
 
 typedef struct s_medians
@@ -32,9 +45,10 @@ t_stack		*lstnew(int content, char head, int order);
 void		sort(t_stack **stack_A, t_stack **stack_B);
 int			check_arguments(int argc, char **argv, int **cash);
 int			check_numbers(char *set, char ***splitted);
-int			check_numbers_wo_split(char **splitted);
+int			check_digits(char *argv);
 int			check_doubles(char **set);
-long int	ft_atoi_long(const char *str);
+int			check_overfit(char *splitter);
+int			ft_custom_atoi(int *final, const char *str);
 void		print_stack(t_stack *stack);
 void		swap_a(t_stack **stack_A);
 void		swap_b(t_stack **stack_B);
@@ -48,22 +62,22 @@ void		roundlst_addback(t_stack **lst, t_stack *new);
 void		roundlst_delfirst(t_stack **stack);
 void		push_a(t_stack **stack_B, t_stack **stack_A);
 void		push_b(t_stack **stack_A, t_stack **stack_B);
-void		shift_A(t_stack **stack);
-void		shift_B(t_stack **stack);
+void		shift_a(t_stack **stack);
+void		shift_b(t_stack **stack);
 void		shift_both(t_stack **stack_A, t_stack **stack_B);
-void		reverse_shift_A(t_stack **stack);
-void		reverse_shift_B(t_stack **stack);
+void		reverse_shift_a(t_stack **stack);
+void		reverse_shift_b(t_stack **stack);
 void		reverse_shift_both(t_stack **stack_A, t_stack **stack_B);
 int			len_stack(t_stack *stack);
 int			sorted_stack(t_stack *stack);
 void		check_swap_a(t_stack **stack_A);
 void		check_swap_both(t_stack **stack_A, t_stack **stack_B);
 void		check_swap_b(t_stack **stack_B);
-void		check_shift_A(t_stack **stack_A);
-void		check_shift_B(t_stack **stack_B);
+void		check_shift_a(t_stack **stack_A);
+void		check_shift_b(t_stack **stack_B);
 void		check_shift_both(t_stack **stack_A, t_stack **stack_B);
-void		check_reverse_shift_B(t_stack **stack_B);
-void		check_reverse_shift_A(t_stack **stack_A);
+void		check_reverse_shift_b(t_stack **stack_B);
+void		check_reverse_shift_a(t_stack **stack_A);
 void		check_reverse_shift_both(t_stack **stack_A, t_stack **stack_B);
 void		check_push_a(t_stack **stack_B, t_stack **stack_A);
 void		check_push_b(t_stack **stack_A, t_stack **stack_B);

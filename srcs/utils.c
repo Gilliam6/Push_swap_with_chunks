@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 14:38:44 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 14:38:45 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-long int	ft_atoi_long(const char *str)
+int	ft_custom_atoi(int *final, const char *str)
 {
-	long int	final;
-	int			minus;
+	int				minus;
+	int				tmp;
 
 	minus = 1;
-	final = 0;
-	while ((*str >= 9 && *str <= 13) || (*str == 32))
-		str++;
+	*final = 0;
 	if (*str == 43 || *str == 45)
 	{
 		if (*str == 45)
@@ -17,11 +27,15 @@ long int	ft_atoi_long(const char *str)
 	}
 	while (*str >= 48 && *str <= 57)
 	{
-		final *= 10;
-		final += *str - 48;
+		tmp = *final;
+		*final *= 10;
+		*final += *str - 48;
+		if (tmp > *final)
+			return (1);
 		str++;
 	}
-	return (final * minus);
+	*final *= minus;
+	return (0);
 }
 
 int	len_stack(t_stack *stack)
@@ -58,5 +72,7 @@ char	*str_prolongate_fabrik(char *arr, char *add)
 	tmp = arr;
 	arr = ft_strjoin(arr, add);
 	free(tmp);
+	if (!arr)
+		my_exit(-2);
 	return (arr);
 }

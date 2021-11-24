@@ -1,43 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_memory.c                                      :+:      :+:    :+:   */
+/*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 14:50:13 by rstephan          #+#    #+#             */
-/*   Updated: 2021/11/20 14:50:14 by rstephan         ###   ########.fr       */
+/*   Created: 2021/11/20 14:53:13 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 14:53:14 by rstephan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_stack(t_stack **stack)
+int	check_digits(char *argv)
 {
-	while (*stack)
-		roundlst_delfirst(stack);
+	if (*argv == '-')
+		argv++;
+	while (*argv)
+	{
+		if (!isdigit(*argv))
+			return (0);
+		argv++;
+	}
+	return (1);
 }
 
-void	free_double_array(char **split, int i)
+int	check_doubles(char **set)
 {
-	while (i)
+	unsigned int	counter;
+
+	while (*set)
 	{
-		free(split[i]);
-		i--;
+		counter = 1;
+		while (set[counter])
+		{
+			if (ft_custom_strcmp(set[0], set[counter]))
+				return (0);
+			counter++;
+		}
+		set++;
 	}
-	free(split[i]);
-	free(split);
+	return (1);
 }
 
-void	free_full_double_array(char **split)
+int	check_overfit(char *splitter)
 {
-	int	i;
+	int	check;
 
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	return (ft_custom_atoi(&check, splitter));
 }

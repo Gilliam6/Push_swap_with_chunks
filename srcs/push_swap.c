@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 14:36:40 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 14:36:41 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	my_exit(int err_num)
@@ -13,7 +25,7 @@ int	*casher(char **set, int *save)
 {
 	unsigned int	counter;
 	unsigned int	index;
-	long int		tmp;
+	int				tmp;
 	int				*cash;
 
 	counter = 0;
@@ -26,8 +38,7 @@ int	*casher(char **set, int *save)
 	index = 0;
 	while (set[index])
 	{
-		tmp = ft_atoi_long(set[index]);
-		if (tmp > 2147483647 || tmp < -2147483648)
+		if (ft_custom_atoi(&tmp, set[index]))
 			my_exit(-1);
 		cash[index] = tmp;
 		index++;
@@ -45,6 +56,11 @@ int	main(int argc, char **argv)
 		counter += check_arguments(argc, argv, &cash);
 	else
 		return (0);
+	if (counter == -1)
+	{
+		free(cash);
+		my_exit(-2);
+	}
 	stack_init(cash, counter);
 	return (0);
 }

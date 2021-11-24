@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_rotate.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 14:46:10 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 14:46:12 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void	check_shift_A(t_stack **stack)
+void	check_shift_a(t_stack **stack)
 {
 	if (len_stack(*stack) > 1)
 	{
@@ -10,7 +22,7 @@ void	check_shift_A(t_stack **stack)
 	}
 }
 
-void	check_shift_B(t_stack **stack)
+void	check_shift_b(t_stack **stack)
 {
 	if (len_stack(*stack) > 1)
 	{

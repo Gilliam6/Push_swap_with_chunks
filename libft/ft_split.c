@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rstephan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 15:45:10 by rstephan          #+#    #+#             */
+/*   Updated: 2021/11/20 15:45:11 by rstephan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_free(char **spliter, unsigned int i)
@@ -20,7 +32,6 @@ static unsigned int	ft_pieces(char const *s, char c)
 
 	delen = 0;
 	counter = 0;
-
 	while (s[counter] && s[counter] == c)
 		counter++;
 	while (s[counter])

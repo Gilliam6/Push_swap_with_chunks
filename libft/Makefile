@@ -47,7 +47,7 @@ GREEN = \033[0;32m
 RED = \033[0;31m
 RESET = \033[0m
 
-HEADER	=	libft.h
+HEADER	=	../includes/libft.h
 
 BONUS_O	=	${BONUS:.c=.o}
 
